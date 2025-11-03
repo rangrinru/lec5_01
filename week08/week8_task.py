@@ -94,32 +94,28 @@ def main():
         while True:
             if "go" in gData:
                 gData = ""
-                print("ok go")
-                
+                print("go")
                 Go()
 
             elif  "back" in gData:
                 gData = ""
-                print("ok back")
-              
+                print("back")
                 Back()
 
                 
             elif  "left" in gData:
                 gData = ""
-                print("ok left")
-                
+                print("left")
                 Left()
 
             elif  "right" in gData:
                 gData = ""
-                print("ok right")
-                
+                print("right")
                 Right()
 
             elif  "stop" in gData:
                 gData = ""
-                print("ok stop")
+                print("stop")
                 Stop()
         
             time.sleep(0.1)
