@@ -5,7 +5,7 @@ import SDcar
 import sys
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-import RPi.GPIO as GPIO   # ★ LED/부저 제어용 추가
+import RPi.GPIO as GPIO   #  LED/부저 제어용 추가
 
 speed = 80
 epsilon = 0.0001
@@ -19,8 +19,8 @@ object_detected = False             # 감지 여부
 enable_AIdrive = False              # e/w 로 AI 주행 ON/OFF
 
 # ---- LED & BUZZER 설정 ----
-LED = 26        # ★ LED 연결된 GPIO (BCM 번호 기준, 필요하면 변경)
-BUZZER = 12     # ★ 부저 연결된 GPIO (사진 코드와 동일)
+LED = 26        #  LED 연결된 GPIO (BCM 번호 기준, 필요하면 변경)
+BUZZER = 12     #  부저 연결된 GPIO (사진 코드와 동일)
 p = None        # PWM 객체 (나중에 __main__에서 생성)
 
 
@@ -82,7 +82,7 @@ def detec():
 
                 class_name = class_names[class_id - 1].strip()
 
-                # ★ laptop만 감지 대상으로 사용
+                #  laptop만 감지 대상으로 사용
                 if class_name.lower() != 'laptop':
                     continue
 
@@ -127,7 +127,7 @@ def func_thread():
 def key_cmd(which_key):
     print('which_key', which_key)
     is_exit = False
-    global enable_AIdrive, detec_on   # ★ 두 전역 변수 모두 global
+    global enable_AIdrive, detec_on   #  두 전역 변수 모두 global
 
     if which_key & 0xFF == 184:
         print('up')
@@ -363,7 +363,7 @@ if __name__ == '__main__':
 
     car = SDcar.Drive()
 
-    # ★ GPIO 초기화 (LED + BUZZER)
+    #  GPIO 초기화 (LED + BUZZER)
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(LED, GPIO.OUT)
